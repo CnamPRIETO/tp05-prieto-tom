@@ -2,11 +2,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-barre-recherche',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './barre-recherche.component.html',
-  styleUrl: './barre-recherche.component.css'
+    selector: 'app-barre-recherche',
+    imports: [FormsModule],
+    templateUrl: './barre-recherche.component.html',
+    styleUrl: './barre-recherche.component.css'
 })
 export class BarreRechercheComponent {
   FiltreRef: string = "";

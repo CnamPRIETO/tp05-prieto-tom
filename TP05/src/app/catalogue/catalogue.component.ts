@@ -7,11 +7,10 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-catalogue',
-  standalone: true,
-  imports: [CommonModule, BarreRechercheComponent, ListeProduitsComponent],
-  templateUrl: './catalogue.component.html',
-  styleUrl: './catalogue.component.css'
+    selector: 'app-catalogue',
+    imports: [CommonModule, BarreRechercheComponent, ListeProduitsComponent],
+    templateUrl: './catalogue.component.html',
+    styleUrl: './catalogue.component.css'
 })
 export class CatalogueComponent implements OnInit, OnDestroy {
   produits : Produit[] = [];
