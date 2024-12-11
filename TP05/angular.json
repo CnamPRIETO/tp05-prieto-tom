@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TP05": {
+    "TP03": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/tp05",
+            "outputPath": "dist/tp03",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -21,10 +21,9 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets",
+              "src/assets/mock"
             ],
             "styles": [
               "src/styles.css"
@@ -59,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TP05:build:production"
+              "buildTarget": "TP03:build:production"
             },
             "development": {
-              "buildTarget": "TP05:build:development"
+              "buildTarget": "TP03:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,10 +78,9 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets",
+              "src/assets/mock"
             ],
             "styles": [
               "src/styles.css"
@@ -92,5 +90,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
