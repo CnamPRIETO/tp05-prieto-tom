@@ -1,6 +1,6 @@
 export class Produit {
-    ref : String = "pas de ref";
+    ref : string = "pas de ref";
     prix : number = 0;
-    desc : String = "pas de desc";
+    desc : string = "pas de desc";
     stock : number = 0;
 }
