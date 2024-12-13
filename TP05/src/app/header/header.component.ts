@@ -1,34 +1,22 @@
-// ./app/header/header.component.ts
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { PanierState } from '../shared/states/panier-state';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [CommonModule, RouterLink],
+    imports: [CommonModule],
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-    nbProduitsPanier: number = 0;
-    subscription!: Subscription;
+export class HeaderComponent {
+    private store = inject(Store);
+    nbProduitsPanier$!: Observable<number>;
 
-    constructor(private store: Store) {}
-
-    ngOnInit() {
-      this.subscription = this.store.select(PanierState.getNbProduits).subscribe(value => {
-        console.log('HeaderComponent: nbProduitsPanier =', value);
-        this.nbProduitsPanier = value;
-      });
-    }
-
-    ngOnDestroy() {
-      if (this.subscription) {
-        this.subscription.unsubscribe();
-      }
+    constructor() {
+        this.nbProduitsPanier$ = this.store.select(PanierState.getNbProduits);
     }
 }

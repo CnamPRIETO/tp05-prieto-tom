@@ -1,4 +1,3 @@
-// ./app/shared/states/panier-state.ts
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext, createSelector } from '@ngxs/store';
 import { AddProduitAuPanier, DelProduitDuPanier } from '../actions/panier-action';
@@ -26,12 +25,10 @@ export class PanierState {
     return state.produits;
   }
 
-  // Exemple de sélecteur avancé utilisant une condition
+  // Sélecteur pour obtenir le total des prix dans le panier
   @Selector()
-  static getNbProduitsEnStock(stockMin: number) {
-    return createSelector([PanierState], (state: PanierStateModel) => {
-      return state.produits.filter(produit => produit.stock >= stockMin).length;
-    });
+  static getTotalPrix(state: PanierStateModel): number {
+    return state.produits.reduce((total, produit) => total + produit.prix, 0);
   }
 
   // Action pour ajouter un produit au panier

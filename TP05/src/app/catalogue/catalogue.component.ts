@@ -5,10 +5,11 @@ import { BarreRechercheComponent } from '../barre-recherche/barre-recherche.comp
 import { ListeProduitsComponent } from '../liste-produits/liste-produits.component';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-catalogue',
-    imports: [CommonModule, BarreRechercheComponent, ListeProduitsComponent],
+    imports: [CommonModule, BarreRechercheComponent, ListeProduitsComponent, RouterLink],
     templateUrl: './catalogue.component.html',
     styleUrl: './catalogue.component.css'
 })
