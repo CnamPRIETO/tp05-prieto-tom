@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { PanierComponent } from './panier/panier.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
-import { TestComponent } from './test/test.component';
 
 export const routes: Routes = [
     { path: '', component: CatalogueComponent }, // Route racine

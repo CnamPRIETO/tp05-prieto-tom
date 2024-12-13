@@ -55,10 +55,15 @@ export class PanierState {
   ) {
     console.log('PanierState: DelProduitDuPanier action received', payload);
     const state = getState();
-    patchState({
-      produits: state.produits.filter(
-        produit => produit.ref !== payload.ref
-      ),
-    });
+    const index = state.produits.findIndex(produit => produit.ref === payload.ref);
+    if (index > -1) {
+      const updatedProduits = [
+        ...state.produits.slice(0, index),
+        ...state.produits.slice(index + 1)
+      ];
+      patchState({
+        produits: updatedProduits,
+      });
+    }
   }
 }
